@@ -34,49 +34,127 @@
             <div class="hero__glow" aria-hidden="true"></div>
         </section>
 
-        <section class="features" id="features">
-            <h2 class="section__title">Designed for focus.</h2>
-            <p class="section__sub">Every detail considered. Nothing in the way.</p>
-            <div class="features__grid">
-                <article class="feature-card">
-                    <div class="feature-card__dot"></div>
-                    <h3>Effortless reading</h3>
-                    <p>Typography crafted for clarity at every size, on every screen.</p>
+        <!-- 1. Recent Projects -->
+        <section class="projects" id="features">
+            <div class="section__header">
+                <p class="eyebrow">Recent work</p>
+                <h2 class="section__title">Recent projects.</h2>
+                <p class="section__sub">A few things I've been building lately.</p>
+            </div>
+            <div class="projects__grid">
+                <article class="project-card">
+                    <a href="/articles" class="project-card__link">
+                        <div class="project-card__cover" style="--cover-from: #1d1d1f; --cover-to: #000000;">
+                            <span class="project-card__mark" style="color: #ffffff;">D</span>
+                        </div>
+                        <div class="project-card__body">
+                            <h3>daibbar</h3>
+                            <p>A minimal blogging engine designed around focus, typography, and the words on the page.</p>
+                            <div class="project-card__tags">
+                                <span>Node.js</span>
+                                <span>Express</span>
+                                <span>EJS</span>
+                                <span>PostgreSQL</span>
+                            </div>
+                        </div>
+                    </a>
                 </article>
-                <article class="feature-card">
-                    <div class="feature-card__dot"></div>
-                    <h3>Beautifully minimal</h3>
-                    <p>A canvas that fades away so the words can lead the way.</p>
+                <article class="project-card">
+                    <a href="#" class="project-card__link">
+                        <div class="project-card__cover" style="--cover-from: #fbfbfd; --cover-to: #f0f0f2;">
+                            <span class="project-card__mark" style="color: #e60023;">P</span>
+                        </div>
+                        <div class="project-card__body">
+                            <h3>Pulse</h3>
+                            <p>A real-time metrics dashboard for indie product builders who want signal, not noise.</p>
+                            <div class="project-card__tags">
+                                <span>TypeScript</span>
+                                <span>React</span>
+                                <span>WebSocket</span>
+                            </div>
+                        </div>
+                    </a>
                 </article>
-                <article class="feature-card">
-                    <div class="feature-card__dot"></div>
-                    <h3>Built for speed</h3>
-                    <p>Lightweight, responsive, and quietly powerful from the first byte.</p>
+                <article class="project-card">
+                    <a href="#" class="project-card__link">
+                        <div class="project-card__cover" style="--cover-from: #e60023; --cover-to: #a8001a;">
+                            <span class="project-card__mark" style="color: #ffffff;">Q</span>
+                        </div>
+                        <div class="project-card__body">
+                            <h3>Quill</h3>
+                            <p>A distraction-free markdown editor with seamless cloud sync and a calm interface.</p>
+                            <div class="project-card__tags">
+                                <span>Next.js</span>
+                                <span>tRPC</span>
+                                <span>Tailwind</span>
+                            </div>
+                        </div>
+                    </a>
                 </article>
             </div>
         </section>
 
-        <section class="showcase" id="showcase">
-            <div class="showcase__glow" aria-hidden="true"></div>
-            <div class="showcase__inner">
-                <p class="eyebrow eyebrow--light">Crafted with intent</p>
-                <h2 class="showcase__title">Where words<br>feel <span>premium</span>.</h2>
-                <p class="showcase__sub">A platform that treats every article like it deserves the spotlight — because it does.</p>
-                <a href="/articles" class="btn btn--red">Explore the library</a>
+        <!-- 2. Latest Articles -->
+        <section class="writing" id="writing">
+            <div class="section__header section__header--left">
+                <p class="eyebrow">Writing</p>
+                <h2 class="section__title">Latest articles.</h2>
             </div>
-        </section>
-
-        <section class="cta">
-            <h2 class="cta__title">Ready to dive in?</h2>
-            <p class="cta__sub">The good stuff is just one click away.</p>
-            <a href="/articles" class="btn btn--primary">Browse articles</a>
+            <ul class="article-list">
+                <li class="article-row">
+                    <a href="#" class="article-row__link">
+                        <time class="article-row__date">May 18, 2026</time>
+                        <div class="article-row__body">
+                            <h3 class="article-row__title">Designing for focus in a world of noise</h3>
+                            <p class="article-row__preview">Notes on minimalism, restraint, and why your reader's attention is the real product.</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="article-row">
+                    <a href="#" class="article-row__link">
+                        <time class="article-row__date">May 4, 2026</time>
+                        <div class="article-row__body">
+                            <h3 class="article-row__title">Why I rebuilt my blog from scratch (again)</h3>
+                            <p class="article-row__preview">On the value of owning your tools, and the small joys of a stack you actually understand.</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="article-row">
+                    <a href="#" class="article-row__link">
+                        <time class="article-row__date">April 22, 2026</time>
+                        <div class="article-row__body">
+                            <h3 class="article-row__title">The case for boring technology</h3>
+                            <p class="article-row__preview">Postgres, Express, and EJS aren't exciting — and that's exactly the point.</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <a href="/articles" class="link-arrow">View all articles <span aria-hidden="true">→</span></a>
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="footer__inner">
-            <a href="/" class="footer__brand">daibbar<span>.</span></a>
-            <p class="footer__copy">&copy; 2026 daibbar. Crafted with care.</p>
+    <!-- 3. About / Connect (also serves as page footer) -->
+    <footer class="about" id="about">
+        <div class="about__glow" aria-hidden="true"></div>
+        <div class="about__inner">
+            <div class="about__bio">
+                <p class="eyebrow eyebrow--light">About</p>
+                <h2 class="about__title">Hi, I'm Daibbar.</h2>
+                <p class="about__text">I build software with a focus on clarity and craft. I write about what I learn so others — and future me — can benefit.</p>
+            </div>
+            <div class="about__connect">
+                <p class="about__connect-label">Find me on</p>
+                <ul class="about__links">
+                    <li><a href="https://github.com/daibbar" target="_blank" rel="noopener">GitHub <span aria-hidden="true">→</span></a></li>
+                    <li><a href="#" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">→</span></a></li>
+                    <li><a href="#" target="_blank" rel="noopener">X (Twitter) <span aria-hidden="true">→</span></a></li>
+                    <li><a href="mailto:hello@daibbar.com">Email <span aria-hidden="true">→</span></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="about__bottom">
+            <a href="/" class="about__brand">daibbar<span>.</span></a>
+            <p class="about__copy">&copy; 2026 daibbar. Crafted with care.</p>
         </div>
     </footer>
 </body>
