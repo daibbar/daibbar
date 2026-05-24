@@ -1,9 +1,74 @@
+<%
+  // ---------------------------------------------------------------
+  // Edit these arrays to update the landing page content.
+  // ---------------------------------------------------------------
+  const projects = [
+    {
+      mark: 'D',
+      from: '#1d1d1f',
+      to: '#000000',
+      markColor: '#ffffff',
+      title: 'daibbar',
+      description: 'A minimal blogging engine designed around focus, typography, and the words on the page.',
+      tags: ['Node.js', 'Express', 'EJS', 'PostgreSQL'],
+      href: '/articles'
+    },
+    {
+      mark: 'P',
+      from: '#fbfbfd',
+      to: '#f0f0f2',
+      markColor: '#e60023',
+      title: 'Pulse',
+      description: 'A real-time metrics dashboard for indie product builders who want signal, not noise.',
+      tags: ['TypeScript', 'React', 'WebSocket'],
+      href: '#'
+    },
+    {
+      mark: 'Q',
+      from: '#e60023',
+      to: '#a8001a',
+      markColor: '#ffffff',
+      title: 'Quill',
+      description: 'A distraction-free markdown editor with seamless cloud sync and a calm interface.',
+      tags: ['Next.js', 'tRPC', 'Tailwind'],
+      href: '#'
+    }
+  ];
+
+  const posts = [
+    {
+      date: 'May 18, 2026',
+      title: 'Designing for focus in a world of noise',
+      preview: 'Notes on minimalism, restraint, and why your reader\u2019s attention is the real product.',
+      href: '#'
+    },
+    {
+      date: 'May 4, 2026',
+      title: 'Why I rebuilt my blog from scratch (again)',
+      preview: 'On the value of owning your tools, and the small joys of a stack you actually understand.',
+      href: '#'
+    },
+    {
+      date: 'April 22, 2026',
+      title: 'The case for boring technology',
+      preview: 'Postgres, Express, and EJS aren\u2019t exciting \u2014 and that\u2019s exactly the point.',
+      href: '#'
+    }
+  ];
+
+  const socials = [
+    { label: 'GitHub',      href: 'https://github.com/daibbar' },
+    { label: 'LinkedIn',    href: '#' },
+    { label: 'X (Twitter)', href: '#' },
+    { label: 'Email',       href: 'mailto:hello@daibbar.com' }
+  ];
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="daibbar — a refined reading experience for ideas that matter.">
+    <meta name="description" content="daibbar \u2014 software, writing, and the small details in between.">
     <title>daibbar — Stories, refined.</title>
     <link rel="stylesheet" href="/style.css">
 </head>
@@ -13,70 +78,103 @@
             <a href="/" class="nav__logo">daibbar<span>.</span></a>
             <nav aria-label="Primary">
                 <ul class="nav__links">
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#showcase">Showcase</a></li>
-                    <li><a href="/articles">Articles</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#writing">Writing</a></li>
+                    <li><a href="#about">About</a></li>
                 </ul>
             </nav>
-            <a href="/articles" class="btn btn--ghost btn--sm">Read now</a>
+            <a href="/articles" class="btn btn--ghost btn--sm">Read articles</a>
         </div>
     </header>
 
     <main>
         <section class="hero">
-            <p class="eyebrow">Introducing daibbar</p>
+            <p class="eyebrow">Daibbar — software & writing</p>
             <h1 class="hero__title">Stories,<br>refined.</h1>
-            <p class="hero__sub">A modern reading experience built for ideas that matter. Quietly powerful. Beautifully minimal.</p>
+            <p class="hero__sub">I build software with a focus on craft, and write about what I learn along the way. Everything I make lives here.</p>
             <div class="hero__ctas">
-                <a href="/articles" class="btn btn--primary">Read articles</a>
-                <a href="#features" class="btn btn--link">Learn more <span aria-hidden="true">›</span></a>
+                <a href="#projects" class="btn btn--primary">View projects</a>
+                <a href="/articles" class="btn btn--link">Read articles <span aria-hidden="true">›</span></a>
             </div>
             <div class="hero__glow" aria-hidden="true"></div>
         </section>
 
-        <section class="features" id="features">
-            <h2 class="section__title">Designed for focus.</h2>
-            <p class="section__sub">Every detail considered. Nothing in the way.</p>
-            <div class="features__grid">
-                <article class="feature-card">
-                    <div class="feature-card__dot"></div>
-                    <h3>Effortless reading</h3>
-                    <p>Typography crafted for clarity at every size, on every screen.</p>
-                </article>
-                <article class="feature-card">
-                    <div class="feature-card__dot"></div>
-                    <h3>Beautifully minimal</h3>
-                    <p>A canvas that fades away so the words can lead the way.</p>
-                </article>
-                <article class="feature-card">
-                    <div class="feature-card__dot"></div>
-                    <h3>Built for speed</h3>
-                    <p>Lightweight, responsive, and quietly powerful from the first byte.</p>
-                </article>
+        <!-- 1. Recent Projects -->
+        <section class="projects" id="projects">
+            <div class="section__header">
+                <p class="eyebrow">Recent work</p>
+                <h2 class="section__title">Projects.</h2>
+                <p class="section__sub">A few things I've been building lately.</p>
+            </div>
+            <div class="projects__grid">
+                <% projects.forEach(p => { %>
+                    <article class="project-card">
+                        <a href="<%= p.href %>" class="project-card__link">
+                            <div class="project-card__cover" style="--cover-from: <%= p.from %>; --cover-to: <%= p.to %>;">
+                                <span class="project-card__mark" style="color: <%= p.markColor %>;"><%= p.mark %></span>
+                            </div>
+                            <div class="project-card__body">
+                                <h3><%= p.title %></h3>
+                                <p><%= p.description %></p>
+                                <div class="project-card__tags">
+                                    <% p.tags.forEach(t => { %><span><%= t %></span><% }) %>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+                <% }) %>
             </div>
         </section>
 
-        <section class="showcase" id="showcase">
-            <div class="showcase__glow" aria-hidden="true"></div>
-            <div class="showcase__inner">
-                <p class="eyebrow eyebrow--light">Crafted with intent</p>
-                <h2 class="showcase__title">Where words<br>feel <span>premium</span>.</h2>
-                <p class="showcase__sub">A platform that treats every article like it deserves the spotlight — because it does.</p>
-                <a href="/articles" class="btn btn--red">Explore the library</a>
+        <!-- 2. Latest Articles -->
+        <section class="writing" id="writing">
+            <div class="section__header section__header--left">
+                <p class="eyebrow">Writing</p>
+                <h2 class="section__title">Latest articles.</h2>
             </div>
-        </section>
-
-        <section class="cta">
-            <h2 class="cta__title">Ready to dive in?</h2>
-            <p class="cta__sub">The good stuff is just one click away.</p>
-            <a href="/articles" class="btn btn--primary">Browse articles</a>
+            <ul class="article-list">
+                <% posts.forEach(post => { %>
+                    <li class="article-row">
+                        <a href="<%= post.href %>" class="article-row__link">
+                            <time class="article-row__date"><%= post.date %></time>
+                            <div class="article-row__body">
+                                <h3 class="article-row__title"><%= post.title %></h3>
+                                <p class="article-row__preview"><%= post.preview %></p>
+                            </div>
+                        </a>
+                    </li>
+                <% }) %>
+            </ul>
+            <a href="/articles" class="link-arrow">View all articles <span aria-hidden="true">→</span></a>
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="footer__inner">
-            <a href="/" class="footer__brand">daibbar<span>.</span></a>
-            <p class="footer__copy">&copy; 2026 daibbar. Crafted with care.</p>
+    <!-- 3. About / Connect (also serves as page footer) -->
+    <footer class="about" id="about">
+        <div class="about__glow" aria-hidden="true"></div>
+        <div class="about__inner">
+            <div class="about__bio">
+                <p class="eyebrow eyebrow--light">About</p>
+                <h2 class="about__title">Hi, I'm Daibbar.</h2>
+                <p class="about__text">I build software with a focus on clarity, craft, and the small details that make an experience feel right. I write about what I learn so others — and future me — can benefit.</p>
+            </div>
+            <div class="about__connect">
+                <p class="about__connect-label">Find me on</p>
+                <ul class="about__links">
+                    <% socials.forEach(s => { %>
+                        <li>
+                            <a href="<%= s.href %>"<% if (s.href.startsWith('http')) { %> target="_blank" rel="noopener"<% } %>>
+                                <%= s.label %>
+                                <span aria-hidden="true">→</span>
+                            </a>
+                        </li>
+                    <% }) %>
+                </ul>
+            </div>
+        </div>
+        <div class="about__bottom">
+            <a href="/" class="about__brand">daibbar<span>.</span></a>
+            <p class="about__copy">&copy; 2026 daibbar. Crafted with care.</p>
         </div>
     </footer>
 </body>
