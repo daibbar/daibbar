@@ -11,7 +11,7 @@ app.use(express.json())
 app.use(express.static("src/public"))
 
 app.get('/', (req, res) => {
-  res.send(`${process.env.DATABASE_URL}`)
+  res.render('landing')
 })
 
 app.use('/articles', articleRouter)

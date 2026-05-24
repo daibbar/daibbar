@@ -3,35 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Articles</title>
+    <title>Articles — daibbar</title>
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <header>
-        <div class="logo">My<span>Blog</span></div>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/articles">Articles</a></li>
-            </ul>
-        </nav>
+    <header class="nav">
+        <div class="nav__inner">
+            <a href="/" class="nav__logo">daibbar<span>.</span></a>
+            <nav aria-label="Primary">
+                <ul class="nav__links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/articles">Articles</a></li>
+                </ul>
+            </nav>
+            <a href="/" class="btn btn--ghost btn--sm">Back home</a>
+        </div>
     </header>
 
     <main class="articles">
-        <h2>All Articles</h2>
+        <div class="articles__header">
+            <h1 class="articles__title">All articles.</h1>
+            <p class="articles__sub">Ideas, stories, and the occasional opinion.</p>
+        </div>
+
         <div class="grid">
             <% articles.forEach(article => { %>
-                <div class="card article">
+                <article class="card">
                     <h3><%= article.title %></h3>
                     <p><%= article.body %></p>
-                    <a href="/articles/<%= article.id %>" class="read-more">Read More →</a>
-                </div>
+                    <a href="/articles/<%= article.id %>" class="read-more">Read more <span aria-hidden="true">›</span></a>
+                </article>
             <% }) %>
         </div>
     </main>
 
-    <footer>
-        <p>&copy; 2026 MyBlog. All rights reserved.</p>
+    <footer class="footer">
+        <div class="footer__inner">
+            <a href="/" class="footer__brand">daibbar<span>.</span></a>
+            <p class="footer__copy">&copy; 2026 daibbar. Crafted with care.</p>
+        </div>
     </footer>
 </body>
 </html>
