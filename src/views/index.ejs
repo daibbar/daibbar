@@ -1,11 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Articles</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <h1>hello <%= name%> world </h1>
+    <header>
+        <div class="logo">My<span>Blog</span></div>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/articles">Articles</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="articles">
+        <h2>All Articles</h2>
+        <div class="grid">
+            <% articles.forEach(article => { %>
+                <div class="card article">
+                    <h3><%= article.title %></h3>
+                    <p><%= article.body %></p>
+                    <a href="/articles/<%= article.id %>" class="read-more">Read More →</a>
+                </div>
+            <% }) %>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MyBlog. All rights reserved.</p>
+    </footer>
 </body>
 </html>

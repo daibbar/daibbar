@@ -5,4 +5,3 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 
-CMD ["npx", "nodemon", "src/server.js"]
