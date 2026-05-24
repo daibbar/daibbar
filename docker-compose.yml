@@ -6,7 +6,7 @@ services:
       POSTGRES_PASSWORD: ${DB_PASS}
       POSTGRES_DB: ${DB_NAME}
     volumes:
-      - pgdata:/var/lib/postgresql/data    # ← persists your data
+      - pgdata:/var/lib/postgresql/data
     ports:
       - "5432:5432"
 
@@ -23,4 +23,4 @@ services:
       - postgres
     command: npx nodemon src/server.js
 volumes:
-  pgdata:                                  # ← declares the volume
+  pgdata:
