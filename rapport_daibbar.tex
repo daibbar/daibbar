@@ -1,0 +1,244 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{titlesec}
+
+% Setup colors for links and code
+\definecolor{primary}{RGB}{180, 0, 0} % Palette rouge mentionnée dans le projet
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=primary,
+    filecolor=magenta,      
+    urlcolor=blue,
+    pdftitle={Rapport de Projet - daibbar},
+}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegray},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+\title{
+    \vspace{2cm}
+    \Huge \textbf{Projet daibbar} \\
+    \Large Portfolio \& Blog Personnel \\
+    \vspace{0.5cm}
+    \large \textit{Learn, build, document, and share.}
+    \vspace{2cm}
+}
+\author{
+    \textbf{Réalisé par :} \\ DAIBBAR Mohamed \\ \textit{IID1 — ENSA Khouribga} \\[1cm]
+    \textbf{Encadré par :} \\ Pr. Rabhi
+}
+\date{Année universitaire 2025 -- 2026}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+\newpage
+
+\tableofcontents
+\newpage
+
+\section{Introduction et Présentation du Projet}
+
+\subsection{Qu'est-ce que daibbar ?}
+\textbf{daibbar} est un site web personnel doublé d'un moteur de blog léger. Son slogan officiel, \textit{« Learn, build, document, and share. »} (Apprendre, construire, documenter et partager), reflète l'essence même du projet. 
+
+La page d'accueil suit un arc narratif clair et délibéré appelé \textbf{« Proof $\rightarrow$ Knowledge $\rightarrow$ Person »} :
+\begin{itemize}
+    \item \textbf{Hero} : Une section d'accroche avec le message \textit{Just Learn.}
+    \item \textbf{Projets récents} : Une grille de présentation des réalisations (cartes avec des tuiles en dégradé, descriptions et technologies utilisées).
+    \item \textbf{Derniers articles} : Un fil d'actualité sous forme de newsletter listant les dernières publications avec date, titre et aperçu.
+    \item \textbf{About / Connect} : Une section biographique incluant des liens vers les réseaux professionnels (GitHub, LinkedIn, X, Email) agissant également comme pied de page.
+\end{itemize}
+
+\subsection{Objectifs du Projet}
+Les principaux objectifs qui ont motivé la création de cette plateforme sont :
+\begin{itemize}
+    \item \textbf{Documenter} : Centraliser l'apprentissage et archiver les différents projets réalisés.
+    \item \textbf{Partager} : Publier des articles techniques de manière accessible.
+    \item \textbf{Présenter} : Mettre en valeur les compétences et les réalisations techniques dans un portfolio moderne.
+    \item \textbf{Connecter} : Faciliter la prise de contact pour d'éventuelles collaborations.
+\end{itemize}
+
+\section{Architecture Technique}
+
+Le projet a été développé en adoptant une stack technique moderne, robuste et performante, principalement axée sur l'écosystème JavaScript côté serveur.
+
+\begin{table}[h]
+\centering
+\begin{tabularx}{\textwidth}{|l|X|}
+\hline
+\textbf{Couche} & \textbf{Technologie} \\ \hline
+\textbf{Runtime} & Node.js 20 \\ \hline
+\textbf{Serveur Web} & Express 5 \\ \hline
+\textbf{Templates (Vues)} & EJS (Embedded JavaScript) \\ \hline
+\textbf{Base de données} & PostgreSQL 16 \\ \hline
+\textbf{Driver DB} & \texttt{pg} (avec gestion de pool de connexions) \\ \hline
+\textbf{Conteneurisation} & Docker \& Docker Compose \\ \hline
+\textbf{Frontend} & CSS Vanilla, Polices système, aucun framework \\ \hline
+\textbf{Outils de développement} & \texttt{nodemon}, \texttt{dotenv} \\ \hline
+\end{tabularx}
+\caption{Stack technologique du projet daibbar}
+\end{table}
+
+\section{Structure du Projet}
+
+L'application suit scrupuleusement le design pattern \textbf{MVC (Modèle-Vue-Contrôleur)} pour assurer une séparation propre des responsabilités.
+
+\subsection{Arborescence}
+Voici la structure principale du code source :
+
+\begin{lstlisting}[language=bash, title=Structure des répertoires]
+daibbar/
+├── Dockerfile               # Image pour le conteneur de l'application
+├── docker-compose.yml       # Orchestration App + PostgreSQL
+├── package.json
+├── .env.example
+└── src/
+    ├── server.js            # Point d'entrée de l'application Express
+    ├── db/                  # Gestion de la base de données
+    │   ├── pool.js          # Pool de connexion PostgreSQL
+    │   └── populatedb.js    # Script d'initialisation de la DB (Seed)
+    ├── routes/              # Routeurs Express
+    │   ├── articles.js
+    │   └── projects.js
+    ├── controllers/         # Logique métier et handlers de requêtes
+    │   ├── ArticlesController.js
+    │   └── ProjectsController.js
+    ├── model/               # Couche d'accès aux données
+    │   ├── Article.js
+    │   └── Project.js
+    ├── views/               # Templates EJS (Rendu côté serveur)
+    │   ├── landing.ejs      # Accueil complet
+    │   ├── index.ejs        # Liste des articles
+    │   └── About.ejs
+    └── public/              # Fichiers statiques
+        └── style.css        # Styles globaux
+\end{lstlisting}
+
+\subsection{Détails du Pattern MVC}
+\begin{itemize}
+    \item \textbf{Routes} : Elles définissent les endpoints HTTP de l'application (\texttt{/articles}, \texttt{/projects}).
+    \item \textbf{Controllers} : Ils interceptent les requêtes, font appel aux modèles pour manipuler les données, et renvoient les vues correspondantes.
+    \item \textbf{Model} : Encapsule les requêtes SQL via le pool \texttt{pg} pour interagir avec PostgreSQL de manière sécurisée.
+    \item \textbf{Views} : Fichiers EJS générant le rendu HTML dynamique côté serveur.
+\end{itemize}
+
+\section{Fonctionnalités et Interface (UI/UX)}
+
+\subsection{Design Minimaliste et Vanilla}
+L'interface utilisateur a été conçue volontairement sans framework CSS volumineux. Le choix s'est porté sur du \textbf{CSS Vanilla} avec une approche esthétique très précise :
+\begin{itemize}
+    \item \textbf{Palette de couleurs} : Rouge, Blanc et Noir.
+    \item \textbf{Typographie} : Style inspiré par Apple (gros titres avec un espacement négatif généreux pour les en-têtes, \textit{system font stack} et nombreux espaces blancs).
+    \item \textbf{Navigation} : Barre de navigation collante (sticky) et translucide.
+    \item Utilisation de variables personnalisées (CSS custom properties) pour gérer le thème global depuis le fichier \texttt{style.css}.
+\end{itemize}
+
+\subsection{Base de Données et Moteur d'Articles}
+Actuellement, la base de données s'appuie sur une table principale pour stocker le contenu :
+\begin{lstlisting}[language=SQL, title=Schéma de la table Article]
+CREATE TABLE IF NOT EXISTS Article (
+  id    SERIAL PRIMARY KEY,
+  title TEXT,
+  body  TEXT
+);
+\end{lstlisting}
+Le script \texttt{src/db/populatedb.js} est fourni pour créer automatiquement cette table et y insérer des données de test (Seed) lors du premier déploiement.
+
+\section{API et Routage}
+
+L'application Express expose plusieurs routes pour servir les différentes pages :
+
+\begin{table}[h]
+\centering
+\begin{tabularx}{\textwidth}{|l|l|l|X|}
+\hline
+\textbf{Méthode} & \textbf{Chemin} & \textbf{Handler / Contrôleur} & \textbf{Description} \\ \hline
+GET & \texttt{/} & Rendu de \texttt{landing.ejs} & Affiche la page d'accueil complète. \\ \hline
+GET & \texttt{/articles} & \texttt{ArticlesController} & Liste l'ensemble des articles issus de la base de données. \\ \hline
+GET & \texttt{/About} & \textit{Stub} (En développement) & Page "À propos". \\ \hline
+GET & \texttt{/Projects} & \textit{Stub} (En développement) & Page listant les projets. \\ \hline
+ALL & \texttt{*} & 404 Handler & Retourne le message d'erreur "Route existe pas". \\ \hline
+\end{tabularx}
+\caption{Endpoints et Routage Express}
+\end{table}
+
+\section{Déploiement}
+
+Le projet est conçu pour être déployé très facilement grâce à la conteneurisation.
+
+\subsection{L'approche Docker (Recommandée)}
+L'utilisation de \texttt{docker-compose} permet de démarrer l'application Node.js (exposée sur le port 3000) ainsi que la base de données PostgreSQL (exposée sur le port 5432) de manière conjointe. 
+
+\begin{lstlisting}[language=bash, title=Lancement via Docker]
+# Cloner le dépôt et configurer les variables d'environnement
+cp .env.example .env
+
+# Lancer les conteneurs en tâche de fond
+docker compose up
+
+# Initialiser la base de données (au premier lancement uniquement)
+docker compose exec app node src/db/populatedb.js
+\end{lstlisting}
+
+\subsection{Variables d'Environnement}
+Un fichier \texttt{.env} à la racine du projet est nécessaire. Il inclut les valeurs de configuration suivantes :
+\begin{itemize}
+    \item \texttt{DATABASE\_URL} : Chaîne de connexion complète PostgreSQL (lue par \texttt{pool.js}).
+    \item \texttt{DB\_USER}, \texttt{DB\_PASS}, \texttt{DB\_NAME} : Paramètres utilisés pour provisionner l'instance Postgres au sein du conteneur.
+\end{itemize}
+
+\section{Roadmap et Perspectives}
+
+Le projet s'inscrit dans une démarche d'amélioration continue avec plusieurs évolutions prévues.
+
+\subsection{Version 2 (V2)}
+\begin{itemize}
+    \item Connexion complète de la page d'accueil aux données réelles de la base de données (pour le fil d'articles).
+    \item Implémentation complète des pages \texttt{/About} et \texttt{/Projects} avec de vraies réalisations, en remplaçant les placeholders actuels.
+    \item Création d'une interface d'administration CRUD (Create, Read, Update, Delete) complète pour les articles.
+    \item Mise en place d'une authentification sécurisée limitant l'accès aux actions d'administration.
+\end{itemize}
+
+\subsection{Version 3 (V3)}
+\begin{itemize}
+    \item Ajout d'un système de mots-clés (tags) et d'un filtrage des articles par catégories.
+    \item Intégration d'un mode Sombre/Clair dynamique (Dark Mode) en sauvegardant les préférences de l'utilisateur.
+\end{itemize}
+
+\section{Conclusion}
+
+Le projet \textbf{daibbar} illustre la conception rigoureuse d'une plateforme web sur-mesure combinant un portfolio personnel et un moteur de blog léger. En s'appuyant sur des technologies back-end fiables (Node.js, Express, PostgreSQL) couplées à une approche front-end \textit{Vanilla} minimaliste assumée, le site bénéficie d'une architecture MVC claire, facilement maintenable et déployable (via Docker). Ce rapport démontre que les bases solides actuelles laissent place à de belles perspectives d'évolution (V2 et V3) pour enrichir continuellement ses fonctionnalités.
+
+\end{document}
