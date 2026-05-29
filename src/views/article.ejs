@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= article.title %> — daibbar</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header class="nav">
+        <div class="nav__inner">
+            <a href="/" class="nav__logo">daibbar<span>.</span></a>
+            <nav aria-label="Primary">
+                <ul class="nav__links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/articles">Articles</a></li>
+                </ul>
+            </nav>
+            <a href="/articles" class="btn btn--ghost btn--sm">Back to Articles</a>
+        </div>
+    </header>
+
+    <main class="articles">
+        <div class="articles__header">
+            <h1 class="articles__title"><%= article.title %></h1>
+        </div>
+        
+        <article class="single-article-content">
+            <p><%= article.body %></p>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__inner">
+            <a href="/" class="footer__brand">daibbar<span>.</span></a>
+            <p class="footer__copy">&copy; 2026 daibbar. Crafted with care.</p>
+        </div>
+    </footer>
+</body>
+</html>

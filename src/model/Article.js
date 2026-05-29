@@ -8,9 +8,15 @@ class Article {
         return result.rows;
     }
 
-    static async addArticle(title, content) {
-        const query = "insert into Article (title, content) VALUES ($1, $2) RETURNING *"
-        const result = await pl.query(query, [title, content]);
+    static async getArticleById(id) {
+        const query = "SELECT * FROM Article WHERE id = $1";
+        const result = await pl.query(query, [id]);
+        return result.rows[0]; // Return the single row
+    }
+
+    static async addArticle(title, body) {
+        const query = "insert into Article (title, body) VALUES ($1, $2) RETURNING *"
+        const result = await pl.query(query, [title, body]);
         return result;
     }
 }

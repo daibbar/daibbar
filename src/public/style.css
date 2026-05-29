@@ -790,3 +790,132 @@ button  { font: inherit; }
         scroll-behavior: auto !important;
     }
 }
+
+/* ============================================
+   About Hero Image
+   ============================================ */
+.about-hero-img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    aspect-ratio: 16 / 7;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    margin: 0 auto 2.5rem;
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.12);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.about-hero-img:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.18);
+}
+
+/* ============================================
+   About Page Content Layout
+   ============================================ */
+.about-content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 3rem;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+@media (max-width: 720px) {
+    .about-content-wrapper {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .about-image-wrapper {
+        order: -1; /* Puts image above text on mobile */
+        margin-bottom: 2rem;
+    }
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+    color: var(--color-text-soft);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.about-text h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+    letter-spacing: -0.02em;
+}
+
+.about-text h3:first-child {
+    margin-top: 0;
+}
+
+.about-list {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+    color: var(--color-text-soft);
+}
+
+.about-list li {
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+    list-style-type: disc;
+}
+
+.about-list li strong {
+    color: var(--color-text);
+}
+
+.about-text a {
+    color: var(--color-accent);
+    font-weight: 500;
+}
+
+.about-image-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.profile-ring {
+    border-radius: 50%;
+    padding: 3px; /* subtle outer border */
+    background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(0,0,0,0.05));
+    box-shadow: 0 0 0 1px var(--color-border), 0 20px 40px -10px rgba(0, 0, 0, 0.12);
+    display: inline-flex;
+    transition: transform var(--transition), box-shadow var(--transition);
+    position: relative;
+}
+
+.profile-ring::before {
+    content: '';
+    position: absolute;
+    inset: -15px;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, rgba(230, 0, 35, 0.15) 0%, transparent 70%);
+    z-index: -1;
+    pointer-events: none;
+    transition: opacity var(--transition);
+}
+
+.profile-ring:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.1), 0 30px 60px -15px rgba(0, 0, 0, 0.18);
+}
+
+.profile-ring:hover::before {
+    opacity: 0.8;
+}
+
+.profile-img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #fff;
+    background-color: #fff;
+    z-index: 1;
+}

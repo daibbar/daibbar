@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects — daibbar</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header class="nav">
+        <div class="nav__inner">
+            <a href="/" class="nav__logo">daibbar<span>.</span></a>
+            <nav aria-label="Primary">
+                <ul class="nav__links">
+                    <li><a href="/articles">Articles</a></li>
+                    <li><a href="/About">About</a></li>
+                    <li><a href="/projects">Projects</a></li>
+                </ul>
+            </nav>
+            <a href="/" class="btn btn--ghost btn--sm">Back home</a>
+        </div>
+    </header>
+
+    <main class="articles">
+        <div class="articles__header">
+            <h1 class="articles__title">My Projects.</h1>
+            <p class="articles__sub">A few things I've built recently.</p>
+        </div>
+
+        <div class="grid">
+            <% projects.forEach(project => { %>
+                <article class="card">
+                    <h3><%= project.title %></h3>
+                    <p><%= project.description %></p>
+                    <p><strong>Tech Stack:</strong> <%= project.tech_stack %></p>
+                    <a href="<%= project.link %>" target="_blank" rel="noopener" class="read-more">View Project <span aria-hidden="true">›</span></a>
+                </article>
+            <% }) %>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__inner">
+            <a href="/" class="footer__brand">daibbar<span>.</span></a>
+            <p class="footer__copy">&copy; 2026 daibbar. Crafted with care.</p>
+        </div>
+    </footer>
+</body>
+</html>
