@@ -1,66 +1,49 @@
 # Daibbar
 
-Data & Software Engineer
+Data & AI Engineer
 
-I design and develop software that is practical, efficient, and grounded in strong engineering fundamentals. My work spans systems programming, web development, optimization, and applied machine learning.
+I design systems and build solutions focused on data engineering, AI/ML, and backend development. My foundation in systems programming informs my approach to building efficient, scalable infrastructure.
 
 ## About Me
 
-I enjoy turning ideas into working software by combining solid fundamentals with hands-on building. My focus is on writing maintainable solutions, understanding how systems work under the hood, and continuously learning through projects that solve real problems.
-
-- Core languages: SQL, Python, Java, C, JavaScript
-- Interests: Data, algorithms, software architecture, machine learning
-- Experience: backend logic, web apps, data-driven solutions
-- Current focus: Data Engineering fundamentals, AI engineering, scalable product development, learning by building
+- 🔧 Current focus: **Data Engineering**, **AI Engineering**, **Backend Development**
+- 💡 Interests: Data pipelines, machine learning systems, algorithms, software architecture
+- 🛠️ Languages: Python, SQL, Java, C (foundation), JavaScript
+- 📚 Philosophy: Build with strong fundamentals, understand how things work, ship practical solutions
 
 ## Featured Projects
 
-### [dbcLib](https://github.com/daibbar/dbcLib)
-A deep-dive C programming project focused on rebuilding core functions, algorithms, and data structures from scratch to understand how software really works.
+### [Call-Me-Maybe](https://github.com/daibbar/Call-Me-Maybe)
+Function calling and constraint decoding. Explores patterns in LLM function calling and prompt engineering for reliable API interactions.
 
-### [push_swap](https://github.com/daibbar/push_swap)
-An efficient stack-sorting project written in C, centered on algorithmic performance and low-level problem solving.
-
-### [CL0V](https://github.com/daibbar/CL0V)
-A club management system built with Next.js, showcasing product thinking and full-stack development.
+### [PneumoniaDetection](https://github.com/daibbar/PneumoniaDetection)
+An AI/ML project building deep learning models for medical image classification. Demonstrates data pipeline construction, model training, and evaluation workflows.
 
 ### [ML-Optimization](https://github.com/daibbar/ML-Optimization)
-A collection of machine learning and optimization experiments exploring performance, modeling, and practical experimentation.
+Hands-on experiments in machine learning and optimization. Covers modeling techniques, performance tuning, and algorithmic approaches to real-world problems.
 
-### [webPres](https://github.com/daibbar/webPres)
-A polished HTML/CSS presentation builder designed to help create quality slides quickly and efficiently.
+### [mygip](https://github.com/daibbar/mygip)
+Python-based utility programs and tools. A collection of practical scripts and applications for data processing and automation.
 
-### [Carnet](https://github.com/daibbar/Carnet)
-A hands-on C# project focused on learning core language concepts and software structure.
+### [Grade_Manager](https://github.com/daibbar/Grade_manager)
+A data management and analysis tool built with Python, handling aggregation, processing, and reporting workflows.
 
-### [MTStock_App](https://github.com/daibbar/MTStock_App)
-A lightweight C inventory management application using files as a simple database layer.
+### [dbcLib](https://github.com/daibbar/dbcLib)
+A deep-dive into C programming—rebuilding core functions, algorithms, and data structures from scratch to understand systems fundamentals.
 
 ## Tech Stack
 
-![C](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
+![Java](https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white)
+![C](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=csharp&logoColor=white)
-![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-
-## GitHub Stats
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=daibbar&show_icons=true&theme=tokyonight" alt="Daibbar GitHub stats" />
-</p>
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=daibbar&layout=compact&theme=tokyonight" alt="Top languages" />
-</p>
 
 ## Current Focus
 
-- Building software with strong architectural and technical foundations
-- Exploring systems programming and algorithmic optimization
-- Developing practical web applications and product-oriented tools
-- Applying machine learning and data-driven thinking to real-world problems
+- Building scalable data pipelines and ETL systems
+- Developing AI/ML models and prompt engineering techniques
+- Designing efficient backend systems and microservices
+- Learning and applying best practices in data engineering and MLOps
 
-Let’s build something useful together.
+Let's build something impactful together.
