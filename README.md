@@ -1,6 +1,6 @@
 # Daibbar
 
-Software Engineer • Problem Solver • Builder
+Data & Software Engineer
 
 I design and develop software that is practical, efficient, and grounded in strong engineering fundamentals. My work spans systems programming, web development, optimization, and applied machine learning.
 
@@ -8,10 +8,10 @@ I design and develop software that is practical, efficient, and grounded in stro
 
 I enjoy turning ideas into working software by combining solid fundamentals with hands-on building. My focus is on writing maintainable solutions, understanding how systems work under the hood, and continuously learning through projects that solve real problems.
 
-- 💻 Core languages: C, Python, JavaScript, C#
-- 🧠 Interests: algorithms, optimization, software architecture, machine learning
-- 🌐 Experience: backend logic, web apps, data-driven solutions
-- 🚀 Current focus: systems programming, scalable product development, learning by building
+- Core languages: SQL, Python, Java, C, JavaScript
+- Interests: Data, algorithms, software architecture, machine learning
+- Experience: backend logic, web apps, data-driven solutions
+- Current focus: Data Engineering fundamentals, AI engineering, scalable product development, learning by building
 
 ## Featured Projects
 
